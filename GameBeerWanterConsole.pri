@@ -1,16 +1,16 @@
 INCLUDEPATH += \
-    ../../Games/GameBeerWanter
+    ../BeerWanter
 
 SOURCES += \
-    ../../Games/GameBeerWanter/beerwantermaindialog.cpp \
-    ../../Games/GameBeerWanter/beerwantermenudialog.cpp
+    ../BeerWanter/beerwantermaindialog.cpp \
+    ../BeerWanter/beerwantermenudialog.cpp
 
 HEADERS  += \
-    ../../Games/GameBeerWanter/beerwantermaindialog.h \
-    ../../Games/GameBeerWanter/beerwantermenudialog.h
+    ../BeerWanter/beerwantermaindialog.h \
+    ../BeerWanter/beerwantermenudialog.h
 
 RESOURCES += \
-    ../../Games/GameBeerWanter/GameBeerWanter.qrc
+    ../BeerWanter/GameBeerWanter.qrc
 
 OTHER_FILES += \
-    ../../Games/GameBeerWanter/Licence.txt
+    ../BeerWanter/Licence.txt

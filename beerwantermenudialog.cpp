@@ -33,7 +33,6 @@ along with this program.If not, see <http://www.gnu.org/licenses/>.
 
 #include "beerwantermaindialog.h"
 #include "fileio.h"
-#include "imagecanvas.h"
 #include "richelbilderbeekprogram.h"
 #include "testtimer.h"
 #include "trace.h"
@@ -51,6 +50,7 @@ int ribi::BeerWanterMenuDialog::ExecuteSpecific(const std::vector<std::string>& 
   }
 
   //Display a beer
+  #ifdef DO_DISPLAY_THE_BEER_AGAIN
   if (argc == 2 && (argv[1] == "-s" || argv[1] == "--show"))
   {
     const std::string filename { fileio::FileIo().GetTempFileName(".png") };
@@ -71,7 +71,7 @@ int ribi::BeerWanterMenuDialog::ExecuteSpecific(const std::vector<std::string>& 
     std::cout << (*canvas) << std::endl;
     return 0;
   }
-
+  #endif
   if (argc == 1)
   {
     std::cout
@@ -88,13 +88,13 @@ ribi::About ribi::BeerWanterMenuDialog::GetAbout() const noexcept
     "Richel Bilderbeek",
     "BeerWanter",
     "a simple game",
-    "the 16th of January 2014",
+    "the 2nd of October 2015",
     "2005-2015",
     "http://www.richelbilderbeek.nl/GameBeerWanter.htm",
     GetVersion(),
     GetVersionHistory());
-  a.AddLibrary("Canvas version: " + Canvas::GetVersion());
-  a.AddLibrary("ImageCanvas version: " + ImageCanvas::GetVersion());
+  //a.AddLibrary("Canvas version: " + Canvas::GetVersion());
+  //a.AddLibrary("ImageCanvas version: " + ImageCanvas::GetVersion());
   a.AddLibrary("TestTimer version: " + TestTimer::GetVersion());
   return a;
 }
@@ -124,7 +124,7 @@ boost::shared_ptr<const ribi::Program> ribi::BeerWanterMenuDialog::GetProgram() 
 
 std::string ribi::BeerWanterMenuDialog::GetVersion() const noexcept
 {
-  return "7.2";
+  return "7.3";
 }
 
 std::vector<std::string> ribi::BeerWanterMenuDialog::GetVersionHistory() const noexcept
@@ -141,7 +141,8 @@ std::vector<std::string> ribi::BeerWanterMenuDialog::GetVersionHistory() const n
     "2010-12-23: version 6.1: added ClickWilBeSuccess method, fixed bug in BeerWanterMainDialog::ShakeWindow",
     "2012-03-06: version 7.0: added menu, conformized project architecture for ProjectRichelBilderbeek",
     "2013-07-13: version 7.1: added libcvautomation script to beat the game, improved desktop menu and about screen",
-    "2014-01-16: version 7.2: added command line command 'show'"
+    "2014-01-16: version 7.2: added command line command 'show'",
+    "2015-10-02: version 7.3: move to own repository, removed command line command 'show'"
   };
 }
 
@@ -153,7 +154,6 @@ void ribi::BeerWanterMenuDialog::Test() noexcept
     if (is_tested) return;
     is_tested = true;
   }
-  const TestTimer test_timer(__func__,__FILE__,1.0);
   //Main dialog
   {
     const int screen_width = 640;
@@ -181,5 +181,6 @@ void ribi::BeerWanterMenuDialog::Test() noexcept
       && "BeerWanter resource must exist");
     fileio::FileIo().DeleteFile(filename);
   }
+  const TestTimer test_timer(__func__,__FILE__,1.0);
 }
 #endif

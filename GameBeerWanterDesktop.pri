@@ -1,20 +1,15 @@
-include(../../Games/GameBeerWanter/GameBeerWanterConsole.pri)
+include(../BeerWanter/GameBeerWanterConsole.pri)
 
 SOURCES += \
-    ../../Games/GameBeerWanter/qtbeerwanterwidget.cpp \
-    ../../Games/GameBeerWanter/qtbeerwantermenudialog.cpp \
-    ../../Games/GameBeerWanter/qtbeerwantermaindialog.cpp
+    ../BeerWanter/qtbeerwanterwidget.cpp \
+    ../BeerWanter/qtbeerwantermenudialog.cpp \
+    ../BeerWanter/qtbeerwantermaindialog.cpp
 
 HEADERS  += \
-    ../../Games/GameBeerWanter/qtbeerwanterwidget.h \
-    ../../Games/GameBeerWanter/qtbeerwantermenudialog.h \
-    ../../Games/GameBeerWanter/qtbeerwantermaindialog.h
+    ../BeerWanter/qtbeerwanterwidget.h \
+    ../BeerWanter/qtbeerwantermenudialog.h \
+    ../BeerWanter/qtbeerwantermaindialog.h
 
 FORMS += \
-    ../../Games/GameBeerWanter/qtbeerwantermenudialog.ui \
-    ../../Games/GameBeerWanter/qtbeerwantermaindialog.ui
-
-# Moved to GameBeerWanterConsole
-#RESOURCES += \
-#    ../../Games/GameBeerWanter/GameBeerWanter.qrc
-
+    ../BeerWanter/qtbeerwantermenudialog.ui \
+    ../BeerWanter/qtbeerwantermaindialog.ui

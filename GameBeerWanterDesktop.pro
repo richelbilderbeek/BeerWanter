@@ -1,11 +1,11 @@
-include(../../DesktopApplication.pri)
+include(../RibiLibraries/DesktopApplicationNoWeffcpp.pri)
 
-include(../../Libraries/Boost.pri)
-include(../../Libraries/GeneralConsole.pri)
-include(../../Libraries/GeneralDesktop.pri)
+include(../RibiLibraries/Boost.pri)
+include(../RibiLibraries/GeneralConsole.pri)
+include(../RibiLibraries/GeneralDesktop.pri)
 
-include(../../Classes/CppCanvas/CppCanvas.pri)
-include(../../Classes/CppImageCanvas/CppImageCanvas.pri)
+# include(../RibiClasses/CppCanvas/CppCanvas.pri)
+# include(../RibiClasses/CppImageCanvas/CppImageCanvas.pri)
 
 include(GameBeerWanterDesktop.pri)
 
