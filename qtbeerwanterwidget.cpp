@@ -66,7 +66,9 @@ ribi::QtBeerWanterWidget::QtBeerWanterWidget(QWidget *parent)
       m_sprite->width(),
       m_sprite->height(),
       520,
-      520));
+      520
+    )
+  );
 
   //Ensure the window does not get resized
   this->setFixedHeight(m_dialog->GetWindowHeight());

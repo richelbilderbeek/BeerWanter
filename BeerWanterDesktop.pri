@@ -1,4 +1,4 @@
-include(../BeerWanter/GameBeerWanterConsole.pri)
+include(../BeerWanter/BeerWanterConsole.pri)
 
 SOURCES += \
     ../BeerWanter/qtbeerwanterwidget.cpp \

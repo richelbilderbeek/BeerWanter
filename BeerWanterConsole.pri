@@ -10,7 +10,5 @@ HEADERS  += \
     ../BeerWanter/beerwantermenudialog.h
 
 RESOURCES += \
-    ../BeerWanter/GameBeerWanter.qrc
+    ../BeerWanter/BeerWanter.qrc
 
-OTHER_FILES += \
-    ../BeerWanter/Licence.txt

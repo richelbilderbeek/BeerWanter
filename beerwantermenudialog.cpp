@@ -33,7 +33,6 @@ along with this program.If not, see <http://www.gnu.org/licenses/>.
 
 #include "beerwantermaindialog.h"
 #include "fileio.h"
-#include "richelbilderbeekprogram.h"
 #include "testtimer.h"
 #include "trace.h"
 #pragma GCC diagnostic pop
@@ -113,18 +112,9 @@ ribi::Help ribi::BeerWanterMenuDialog::GetHelp() const noexcept
   );
 }
 
-boost::shared_ptr<const ribi::Program> ribi::BeerWanterMenuDialog::GetProgram() const noexcept
-{
-  const boost::shared_ptr<const ribi::Program> p {
-    new ProgramBeerWanter
-  };
-  assert(p);
-  return p;
-}
-
 std::string ribi::BeerWanterMenuDialog::GetVersion() const noexcept
 {
-  return "7.3";
+  return "7.4";
 }
 
 std::vector<std::string> ribi::BeerWanterMenuDialog::GetVersionHistory() const noexcept
@@ -142,7 +132,8 @@ std::vector<std::string> ribi::BeerWanterMenuDialog::GetVersionHistory() const n
     "2012-03-06: version 7.0: added menu, conformized project architecture for ProjectRichelBilderbeek",
     "2013-07-13: version 7.1: added libcvautomation script to beat the game, improved desktop menu and about screen",
     "2014-01-16: version 7.2: added command line command 'show'",
-    "2015-10-02: version 7.3: move to own repository, removed command line command 'show'"
+    "2015-10-02: version 7.3: move to own repository, removed command line command 'show'",
+    "2015-12-17: version 7.4: cleaning up",
   };
 }
 
