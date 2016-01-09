@@ -1,2 +1,7 @@
 # BeerWanter
-C++ game in which you have to click on the beer
+
+Game in which you have to click on the beer, written in C++ using Qt.
+
+![BeerWanter menu v7.4](Screenshots/BeerWanterMenu_7_4.png)
+
+![BeerWanter v7.4](Screenshots/BeerWanter_7_4.png)
