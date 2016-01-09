@@ -27,3 +27,9 @@
 *.out
 *.app
 *.pro.user
+release/
+Makefile
+Makefile.*
+object_script*
+ui_*
+*_plugin_import.cpp
