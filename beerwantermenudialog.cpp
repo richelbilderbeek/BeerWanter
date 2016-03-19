@@ -39,9 +39,6 @@ along with this program.If not, see <http://www.gnu.org/licenses/>.
 
 int ribi::BeerWanterMenuDialog::ExecuteSpecific(const std::vector<std::string>& argv) noexcept
 {
-  #ifndef NDEBUG
-  Test();
-  #endif
   const int argc = static_cast<int>(argv.size());
   if (argc == 1)
   {
@@ -87,8 +84,8 @@ ribi::About ribi::BeerWanterMenuDialog::GetAbout() const noexcept
     "Richel Bilderbeek",
     "BeerWanter",
     "a simple game",
-    "the 2nd of October 2015",
-    "2005-2015",
+    "the 19th of March 2016",
+    "2005-2016",
     "http://www.richelbilderbeek.nl/GameBeerWanter.htm",
     GetVersion(),
     GetVersionHistory());
@@ -114,7 +111,7 @@ ribi::Help ribi::BeerWanterMenuDialog::GetHelp() const noexcept
 
 std::string ribi::BeerWanterMenuDialog::GetVersion() const noexcept
 {
-  return "7.4";
+  return "8.0";
 }
 
 std::vector<std::string> ribi::BeerWanterMenuDialog::GetVersionHistory() const noexcept
@@ -134,44 +131,6 @@ std::vector<std::string> ribi::BeerWanterMenuDialog::GetVersionHistory() const n
     "2014-01-16: version 7.2: added command line command 'show'",
     "2015-10-02: version 7.3: move to own repository, removed command line command 'show'",
     "2015-12-17: version 7.4: cleaning up",
+    "2016-03-19: version 8.0: use of Boost.Test",
   };
 }
-
-#ifndef NDEBUG
-void ribi::BeerWanterMenuDialog::Test() noexcept
-{
-  {
-    static bool is_tested{false};
-    if (is_tested) return;
-    is_tested = true;
-  }
-  //Main dialog
-  {
-    const int screen_width = 640;
-    const int screen_height = 400;
-    const int sprite_width = 32;
-    const int sprite_height = 48;
-    const int window_width = 320;
-    const int window_height = 200;
-
-    BeerWanterMainDialog(
-      screen_width,
-      screen_height,
-      sprite_width,
-      sprite_height,
-      window_width,
-      window_height
-    );
-  }
-  //Resources
-  {
-    const std::string filename { fileio::FileIo().GetTempFileName(".png") };
-    QFile qfile(BeerWanterMainDialog::GetResourceFilename().c_str());
-    qfile.copy(filename.c_str());
-    assert(fileio::FileIo().IsRegularFile(filename)
-      && "BeerWanter resource must exist");
-    fileio::FileIo().DeleteFile(filename);
-  }
-  const TestTimer test_timer(__func__,__FILE__,1.0);
-}
-#endif

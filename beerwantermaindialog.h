@@ -84,10 +84,6 @@ struct BeerWanterMainDialog
 
   int GetRandomCursorShake() const;
   int GetRandomWindowShake() const;
-
-  #ifndef NDEBUG
-  static void Test() noexcept;
-  #endif
 };
 
 } //~namespace ribi

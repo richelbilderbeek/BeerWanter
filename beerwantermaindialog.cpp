@@ -56,9 +56,7 @@ ribi::BeerWanterMainDialog::BeerWanterMainDialog(
     m_window_x{(screen_width  / 2) - (window_width  / 2)},
     m_window_y{(screen_height / 2) - (window_height / 2)}
 {
-  #ifndef NDEBUG
-  Test();
-  #endif
+
 }
 
 bool ribi::BeerWanterMainDialog::ClickWilBeSuccess() const
@@ -135,30 +133,3 @@ void ribi::BeerWanterMainDialog::ShakeWindow()
   m_window_x += GetRandomWindowShake();
   m_window_y += GetRandomWindowShake();
 }
-
-#ifndef NDEBUG
-void ribi::BeerWanterMainDialog::Test() noexcept
-{
-  {
-    static bool is_tested{false};
-    if (is_tested) return;
-    is_tested = true;
-  }
-  const TestTimer test_timer(__func__,__FILE__,1.0);
-  const int screen_width = 640;
-  const int screen_height = 400;
-  const int sprite_width = 32;
-  const int sprite_height = 48;
-  const int window_width = 320;
-  const int window_height = 200;
-
-  BeerWanterMainDialog(
-    screen_width,
-    screen_height,
-    sprite_width,
-    sprite_height,
-    window_width,
-    window_height
-  );
-}
-#endif
