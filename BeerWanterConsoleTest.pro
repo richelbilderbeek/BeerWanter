@@ -9,3 +9,6 @@ include(../BeerWanter/BeerWanterConsoleTest.pri)
 SOURCES += main_test.cpp
 
 LIBS += -lboost_unit_test_framework
+
+# Thanks to Qt
+QMAKE_CXXFLAGS += -Wno-unused-variable
