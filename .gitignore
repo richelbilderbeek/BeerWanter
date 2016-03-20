@@ -33,3 +33,8 @@ Makefile.*
 object_script*
 ui_*
 *_plugin_import.cpp
+moc_*
+BeerWanterConsole
+BeerWanterConsoleTest
+BeerWanterDesktop
+qrc_*
