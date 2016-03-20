@@ -8,4 +8,6 @@ install: sudo apt-get install -qq g++-5
 addons: 
   apt: 
     packages: libboost-all-dev
-script: ./build.sh
+script: 
+  - ./install_other_githubs.sh
+  - ./build.sh
