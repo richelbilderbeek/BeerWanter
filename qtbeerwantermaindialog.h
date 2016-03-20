@@ -52,10 +52,6 @@ private:
 private slots:
   void ChangeTitle(const std::string& title) noexcept;
   void OnShake(const int x, const int y) noexcept;
-
-  #ifndef NDEBUG
-  static void Test() noexcept;
-  #endif
 };
 
 } //~namespace ribi

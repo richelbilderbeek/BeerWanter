@@ -51,15 +51,15 @@ ribi::QtBeerWanterMainDialog::QtBeerWanterMainDialog(QWidget *parent)
 
   QObject::connect(
     m_widget.get(),
-    &QtBeerWanterWidget::LevelUp,
+    SIGNAL(LevelUp(const std::string&)),
     this,
-    &ribi::QtBeerWanterMainDialog::ChangeTitle
+    SLOT(ChangeTitle(const std::string&))
   );
   QObject::connect(
     m_widget.get(),
-    &QtBeerWanterWidget::DoShake,
+    SIGNAL(DoShake(const int,const int)),
     this,
-    &ribi::QtBeerWanterMainDialog::OnShake
+    SLOT(OnShake(const int, const int))
   );
 }
 
@@ -78,30 +78,3 @@ void ribi::QtBeerWanterMainDialog::OnShake(const int x, const int y) noexcept
   this->setGeometry(x,y,this->width(),this->height());
   this->repaint();
 }
-
-#ifndef NDEBUG
-void ribi::QtBeerWanterMainDialog::Test() noexcept
-{
-  {
-    static bool is_tested{false};
-    if (is_tested) return;
-    is_tested = true;
-  }
-  const TestTimer test_timer(__func__,__FILE__,1.0);
-  const int screen_width = 640;
-  const int screen_height = 400;
-  const int sprite_width = 32;
-  const int sprite_height = 48;
-  const int window_width = 320;
-  const int window_height = 200;
-
-  BeerWanterMainDialog(
-    screen_width,
-    screen_height,
-    sprite_width,
-    sprite_height,
-    window_width,
-    window_height
-  );
-}
-#endif

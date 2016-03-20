@@ -22,4 +22,6 @@ addons:
 
 script: 
   - ./install_other_githubs.sh
-  - ./build.sh
+  - ./build_console.sh
+  - ./build_desktop.sh
+  - ./build_console_test.sh

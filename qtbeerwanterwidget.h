@@ -68,7 +68,7 @@ private slots:
   void paintEvent(QPaintEvent *);
 
 signals:
-  void DoShake(const int x,const int y);
+  void DoShake(const int x, const int y);
   void LevelUp(const std::string&);
 
 private:

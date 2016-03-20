@@ -48,10 +48,6 @@ private slots:
 
 private:
   Ui::QtBeerWanterMenuDialog *ui;
-
-  #ifndef NDEBUG
-  static void Test() noexcept;
-  #endif
 };
 
 } //~namespace ribi
