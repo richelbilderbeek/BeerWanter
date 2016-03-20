@@ -35,9 +35,6 @@ ribi::QtBeerWanterMenuDialog::QtBeerWanterMenuDialog(QWidget *parent) :
   QtHideAndShowDialog(parent),
   ui(new Ui::QtBeerWanterMenuDialog)
 {
-  #ifndef NDEBUG
-  Test();
-  #endif
   ui->setupUi(this);
 }
 

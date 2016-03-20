@@ -37,9 +37,6 @@ ribi::QtBeerWanterMainDialog::QtBeerWanterMainDialog(QWidget *parent)
     ui(new Ui::QtBeerWanterMainDialog),
     m_widget(new QtBeerWanterWidget)
 {
-  #ifndef NDEBUG
-  Test();
-  #endif
   ui->setupUi(this);
   ui->beerwanter_layout->addWidget(m_widget.get());
   this->setGeometry(
