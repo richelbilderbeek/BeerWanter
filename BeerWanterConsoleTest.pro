@@ -8,7 +8,12 @@ include(../BeerWanter/BeerWanterConsoleTest.pri)
 
 SOURCES += main_test.cpp
 
+# Boost.Test
 LIBS += -lboost_unit_test_framework
 
 # Thanks to Qt
 QMAKE_CXXFLAGS += -Wno-unused-variable
+
+# gcov
+QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage
+LIBS += -lgcov
