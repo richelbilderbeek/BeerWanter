@@ -1,4 +1,5 @@
 #!/bin/bash
-qmake
+qmake BeerWanterConsole.pro
 make
-./travis_qmake_gcc_cpp14_boost
+qmake BeerWanterDesktop.pro
+make
