@@ -38,3 +38,5 @@ BeerWanterConsole
 BeerWanterConsoleTest
 BeerWanterDesktop
 qrc_*
+*.gcno
+*.gcda
