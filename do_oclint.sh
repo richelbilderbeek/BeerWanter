@@ -4,9 +4,8 @@
 cpp_files=`ls *.cpp | egrep -v "^qrc_.*\.cpp$" | egrep -v "^moc_.*\.cpp$"`
 h_files=`ls *.h | egrep -v "^ui_.*\.h$"`
 
-
-echo $cpp_files
-echo $h_files
+#echo $cpp_files
+#echo $h_files
 
 
 # Clean main should work
@@ -32,7 +31,7 @@ echo $h_files
   -I/usr/include/qt5/QtWidgets \
   > /dev/null
 
-cat oclint.log
+#cat oclint.log
 
 # Will be 1 if success
 # Will be 0 if fail
