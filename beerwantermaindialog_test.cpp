@@ -1,5 +1,7 @@
 #include <boost/test/unit_test.hpp>
 #include "beerwantermaindialog.h"
+#include "fileio.h"
+#include <QFile>
 
 BOOST_AUTO_TEST_CASE(BeerWanterMainDialog_test)
 {
@@ -22,4 +24,15 @@ BOOST_AUTO_TEST_CASE(BeerWanterMainDialog_test)
   BOOST_CHECK(d.GetWindowHeight() == window_height);
   BOOST_CHECK(d.GetSpriteWidth() == sprite_width);
   BOOST_CHECK(d.GetSpriteHeight() == sprite_height);
+}
+
+BOOST_AUTO_TEST_CASE(BeerWanterMainDialog_check_resources)
+{
+  const ribi::FileIo f;
+  const std::string filename { f.GetTempFileName(".png") };
+  QFile qfile(ribi::BeerWanterMainDialog::GetResourceFilename().c_str());
+  qfile.copy(filename.c_str());
+  BOOST_CHECK(f.IsRegularFile(filename));
+  f.DeleteFile(filename);
+  BOOST_CHECK(!f.IsRegularFile(filename));
 }

@@ -37,44 +37,12 @@ along with this program.If not, see <http://www.gnu.org/licenses/>.
 #include "trace.h"
 #pragma GCC diagnostic pop
 
-int ribi::BeerWanterMenuDialog::ExecuteSpecific(const std::vector<std::string>& argv) noexcept
+int ribi::BeerWanterMenuDialog::ExecuteSpecific(const std::vector<std::string>&) noexcept
 {
-  const int argc = static_cast<int>(argv.size());
-  if (argc == 1)
-  {
-    std::cout << GetHelp() << '\n';
-  }
-
-  //Display a beer
-  #ifdef DO_DISPLAY_THE_BEER_AGAIN
-  if (argc == 2 && (argv[1] == "-s" || argv[1] == "--show"))
-  {
-    const std::string filename { fileio::FileIo().GetTempFileName(".png") };
-    QFile qfile(BeerWanterMainDialog::GetResourceFilename().c_str());
-    qfile.copy(filename.c_str());
-    assert(fileio::FileIo().IsRegularFile(filename)
-      && "BeerWanter resource must exist");
-
-    const int n_cols = 78;
-    const boost::shared_ptr<ImageCanvas> canvas {
-      new ImageCanvas(
-        filename,
-        n_cols
-      )
-    };
-
-    fileio::FileIo().DeleteFile(filename);
-    std::cout << (*canvas) << std::endl;
-    return 0;
-  }
-  #endif
-  if (argc == 1)
-  {
-    std::cout
-      << std::endl
-      << GetAbout().GetFileTitle() << " cannot be run in console mode\n"
-      << std::endl;
-  }
+  std::cout
+    << std::endl
+    << GetAbout().GetFileTitle() << " cannot be run in console mode\n"
+    << std::endl;
   return 0;
 }
 

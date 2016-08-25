@@ -1,15 +1,17 @@
 #include <boost/test/unit_test.hpp>
-#include "beerwantermaindialog.h"
-#include "fileio.h"
-#include <QFile>
+#include "beerwantermenudialog.h"
 
-BOOST_AUTO_TEST_CASE(BeerWanterMenuDialog_check_resources)
+BOOST_AUTO_TEST_CASE(BeerWanterMenuDialog_call_getters)
 {
-  const ribi::FileIo f;
-  const std::string filename { f.GetTempFileName(".png") };
-  QFile qfile(ribi::BeerWanterMainDialog::GetResourceFilename().c_str());
-  qfile.copy(filename.c_str());
-  BOOST_CHECK(f.IsRegularFile(filename));
-  f.DeleteFile(filename);
-  BOOST_CHECK(!f.IsRegularFile(filename));
+  const ribi::BeerWanterMenuDialog d;
+  BOOST_CHECK(!d.GetAbout().GetVersion().empty());
+  BOOST_CHECK(!d.GetHelp().GetVersion().empty());
+  BOOST_CHECK(!d.GetVersion().empty());
+  BOOST_CHECK(!d.GetVersionHistory().empty());
+}
+
+BOOST_AUTO_TEST_CASE(BeerWanterMenuDialog_run)
+{
+  ribi::BeerWanterMenuDialog d;
+  d.Execute( {"BeerWanter"} );
 }
