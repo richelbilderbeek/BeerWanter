@@ -61,11 +61,12 @@ ribi::BeerWanterMainDialog::BeerWanterMainDialog(
 
 bool ribi::BeerWanterMainDialog::ClickWilBeSuccess() const
 {
-  return (
-       (m_cursor_x >= m_sprite_x)
-    && (m_cursor_x <= m_sprite_x + m_sprite_width)
-    && (m_cursor_y >= m_sprite_y)
-    && (m_cursor_y <= m_sprite_y + m_sprite_height));
+  return
+       m_cursor_x >= m_sprite_x
+    && m_cursor_x <= m_sprite_x + m_sprite_width
+    && m_cursor_y >= m_sprite_y
+    && m_cursor_y <= m_sprite_y + m_sprite_height
+  ;
 }
 
 bool ribi::BeerWanterMainDialog::Click()
