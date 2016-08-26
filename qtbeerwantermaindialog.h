@@ -38,7 +38,7 @@ struct QtBeerWanterWidget;
 
 class QtBeerWanterMainDialog : public QtHideAndShowDialog
 {
-  Q_OBJECT
+  Q_OBJECT //!OCLINT
 
 public:
   explicit QtBeerWanterMainDialog(QWidget *parent = 0);

@@ -32,7 +32,7 @@ namespace ribi {
 
 class QtBeerWanterMenuDialog : public QtHideAndShowDialog
 {
-  Q_OBJECT
+  Q_OBJECT //!OCLINT
 
 public:
   QtBeerWanterMenuDialog(const QtBeerWanterMenuDialog&) = delete;

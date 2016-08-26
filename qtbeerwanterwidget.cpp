@@ -185,9 +185,9 @@ void ribi::QtBeerWanterWidget::paintEvent(QPaintEvent *)
 {
   QPainter painter(this);
 
-  Modify(std::get<0>(m_background_rgb));
-  Modify(std::get<1>(m_background_rgb));
-  Modify(std::get<2>(m_background_rgb));
+  std::get<0>(m_background_rgb) = Modify(std::get<0>(m_background_rgb));
+  std::get<1>(m_background_rgb) = Modify(std::get<1>(m_background_rgb));
+  std::get<2>(m_background_rgb) = Modify(std::get<2>(m_background_rgb));
 
   QPixmap p(this->width(),this->height());
   MyPaint(
@@ -198,27 +198,30 @@ void ribi::QtBeerWanterWidget::paintEvent(QPaintEvent *)
   );
   painter.drawPixmap(0,0,p);
 
-  //#define DEBUG_SHOW_BEERWANTER_INFO
-  #ifdef DEBUG_SHOW_BEERWANTER_INFO
-  painter.drawText(QRectF(0.0,0.0,this->width(),this->height()),m_debug_text.c_str());
-  #endif
-
   assert(m_sprite);
   painter.drawPixmap(
     m_dialog->GetSpriteX(),
     m_dialog->GetSpriteY(),
-    *m_sprite.get());
+    *m_sprite.get()
+  );
 }
 
-void ribi::QtBeerWanterWidget::Modify(int& color)
+int ribi::Modify(const int color) noexcept
 {
-  color += ((std::rand() >> 4) % 3) - 1;
-  if (color > 255) color = 255;
-  if (color < 0) color = 0;
+  const int new_color = color + ((std::rand() >> 4) % 3) - 1;
+  if (new_color > 255)
+  {
+    return 255;
+  }
+  else if (new_color < 0)
+  {
+    return 0;
+  }
+  return new_color;
 }
 
 //From http://www.richelbilderbeek.nl/CppPaint.htm
-void ribi::QtBeerWanterWidget::MyPaint(
+void ribi::MyPaint(
   QPixmap& pixmap,
   const unsigned char r,
   const unsigned char g,

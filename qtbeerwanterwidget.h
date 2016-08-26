@@ -42,7 +42,7 @@ struct BeerWanterMainDialog;
 
 class QtBeerWanterWidget : public QWidget
 {
-  Q_OBJECT
+  Q_OBJECT //!OCLINT
 
 public:
   explicit QtBeerWanterWidget(QWidget *parent = 0);
@@ -58,9 +58,6 @@ private:
   boost::shared_ptr<QPixmap> m_sprite;
   boost::shared_ptr<QTimer> m_timer;
 
-  ///Modify the color value, keep it in unsigned char range
-  void Modify(int& color);
-
 private slots:
   void mouseMoveEvent(QMouseEvent * event);
   void mousePressEvent(QMouseEvent * event);
@@ -71,15 +68,19 @@ signals:
   void DoShake(const int x, const int y);
   void LevelUp(const std::string&);
 
-private:
-  //From http://www.richelbilderbeek.nl/CppPaint.htm
-  static void MyPaint(
-    QPixmap& pixmap,
-    const unsigned char r,
-    const unsigned char g,
-    const unsigned char b,
-    const unsigned char a = 255); //Opaque
 };
+
+//From http://www.richelbilderbeek.nl/CppPaint.htm
+void MyPaint(
+  QPixmap& pixmap,
+  const unsigned char r,
+  const unsigned char g,
+  const unsigned char b,
+  const unsigned char a = 255
+); //Opaque
+
+///Modify the color value by [-1,1], keep it in [0, 255] range
+int Modify(const int color) noexcept;
 
 } //~namespace ribi
 

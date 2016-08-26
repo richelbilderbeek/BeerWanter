@@ -3,12 +3,12 @@
 cpp_files=`ls *.cpp | egrep -v "^qrc_.*\.cpp$" | egrep -v "^moc_.*\.cpp$"`
 h_files=`ls *.h | egrep -v "^ui_.*\.h$"`
 
-./oclint-0.10.3/bin/oclint -o oclint.log -max-priority-1 0 -max-priority-2 0 -max-priority-3 0 \
+./oclint-0.10.3/bin/oclint -o oclint.log \
   -disable-rule ShortVariableName \
   $cpp_files \
   $h_files \
   -- \
-  -c -std=c++11 \
+  -c -std=c++11 -fPIC \
   -I../RibiClasses/CppAbout \
   -I../RibiClasses/CppHelp \
   -I../RibiClasses/CppTestTimer \
@@ -18,11 +18,25 @@ h_files=`ls *.h | egrep -v "^ui_.*\.h$"`
   -I../RibiClasses/CppQtHideAndShowDialog \
   -I../RibiClasses/CppTrace \
   -I/usr/include/c++/5 \
+  -I/usr/include/x86_64-linux-gnu/c++/5 \
   -I/usr/include/qt5 \
   -I/usr/include/qt5/QtCore \
   -I/usr/include/qt5/QtGui \
   -I/usr/include/qt5/QtWidgets
 
+cat oclint.log
+
+# Will be 0 if success
+# Will be 1 if fail
+fail=`egrep "Compiler Errors" oclint.log | wc -l`
+
+if [ $fail -eq 1 ]; 
+then
+  echo "OCLint: Compiler error"
+  exit 1
+else
+  echo "OCLint: OK"
+fi
 
 # Will be 1 if success
 # Will be 0 if fail

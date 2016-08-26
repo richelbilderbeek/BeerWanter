@@ -26,8 +26,9 @@ along with this program.If not, see <http://www.gnu.org/licenses/>.
 
 namespace ribi {
 
-struct BeerWanterMenuDialog final : public MenuDialog
+struct BeerWanterMenuDialog final : public ::ribi::MenuDialog
 {
+  BeerWanterMenuDialog() {}
   About GetAbout() const noexcept override;
   Help GetHelp() const noexcept override;
   std::string GetVersion() const noexcept override;
