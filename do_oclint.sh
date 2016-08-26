@@ -19,10 +19,9 @@ h_files=`ls *.h | egrep -v "^ui_.*\.h$"`
   -I../RibiClasses/CppTrace \
   -I/usr/include/c++/5 \
   -I/usr/include/x86_64-linux-gnu/c++/5 \
-  -I/usr/include/qt5 \
-  -I/usr/include/qt5/QtCore \
-  -I/usr/include/qt5/QtGui \
-  -I/usr/include/qt5/QtWidgets
+  -I/usr/include/qt4 \
+  -I/usr/include/qt4/QtCore \
+  -I/usr/include/qt4/QtGui
 
 cat oclint.log
 
