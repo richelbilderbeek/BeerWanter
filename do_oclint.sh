@@ -5,7 +5,6 @@ h_files=`ls *.h | egrep -v "^ui_.*\.h$"`
 
 ./oclint-0.10.3/bin/oclint -o oclint.log -max-priority-1 0 -max-priority-2 0 -max-priority-3 0 \
   -disable-rule ShortVariableName \
-  -disable-rule FileNotFound \
   $cpp_files \
   $h_files \
   -- \
@@ -22,10 +21,8 @@ h_files=`ls *.h | egrep -v "^ui_.*\.h$"`
   -I/usr/include/qt5 \
   -I/usr/include/qt5/QtCore \
   -I/usr/include/qt5/QtGui \
-  -I/usr/include/qt5/QtWidgets \
-  > /dev/null
+  -I/usr/include/qt5/QtWidgets
 
-#cat oclint.log
 
 # Will be 1 if success
 # Will be 0 if fail
@@ -36,5 +33,6 @@ then
   echo "OCLint: OK"
 else
   echo "OCLint: Fail"
+  cat oclint.log
   exit 1
 fi

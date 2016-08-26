@@ -6,7 +6,6 @@ Compiler Errors:
 /home/p230198/GitHubs/BeerWanter/beerwantermenudialog_test.cpp:6:36: default initialization of an object of const type 'const ribi::BeerWanterMenuDialog' without a user-provided default constructor
 /usr/include/c++/5/string:38:10: 'bits/c++config.h' file not found
 /usr/include/c++/5/bits/stl_algobase.h:59:10: 'bits/c++config.h' file not found
-/usr/include/c++/5/iostream:38:10: 'bits/c++config.h' file not found
 /usr/include/c++/5/cstddef:44:10: 'bits/c++config.h' file not found
 /usr/include/c++/5/utility:68:10: 'bits/c++config.h' file not found
 
@@ -70,7 +69,7 @@ Compiler Warnings:
 
 OCLint Report
 
-Summary: TotalFiles=4 FilesWithViolations=0 P1=0 P2=0 P3=0 
+Summary: TotalFiles=3 FilesWithViolations=0 P1=0 P2=0 P3=0 
 
 
 [OCLint (http://oclint.org) v0.10.3]
