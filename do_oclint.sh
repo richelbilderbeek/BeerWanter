@@ -1,14 +1,8 @@
 #!/bin/bash
 
-#cpp_files=`ls *.cpp`
 cpp_files=`ls *.cpp | egrep -v "^qrc_.*\.cpp$" | egrep -v "^moc_.*\.cpp$"`
 h_files=`ls *.h | egrep -v "^ui_.*\.h$"`
 
-#echo $cpp_files
-#echo $h_files
-
-
-# Clean main should work
 ./oclint-0.10.3/bin/oclint -o oclint.log -max-priority-1 0 -max-priority-2 0 -max-priority-3 0 \
   -disable-rule ShortVariableName \
   -disable-rule FileNotFound \
@@ -39,8 +33,8 @@ success=`egrep "FilesWithViolations=0 P1=0 P2=0 P3=0" oclint.log | wc -l`
 
 if [ $success -eq 1 ]; 
 then
-  echo "Code is OK"
+  echo "OCLint: OK"
 else
-  echo "Code is not OK"
+  echo "OCLint: Fail"
   exit 1
 fi
