@@ -1,5 +1,5 @@
 sudo: required
-dist: trusty
+#dist: trusty
 language: cpp
 compiler: gcc
 
@@ -7,7 +7,7 @@ install:
   - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
   #- sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa
   - sudo apt-get update -qq 
-  - sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev
+  # - sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev
   - sudo apt-get install -qq libstdc++6-4.7-dev  
   - sudo apt-get install -qq g++-5
   - sudo pip install codecov
