@@ -36,8 +36,3 @@ script:
 
 after_success: 
   - bash <(curl -s https://codecov.io/bash)
-  - cat oclint.log
-
-after_failure: 
-  - cat oclint.log
-  - cd /usr/include; find -P . -name "QFile"
