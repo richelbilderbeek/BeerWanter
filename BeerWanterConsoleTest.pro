@@ -1,25 +1,53 @@
-include(../RibiLibraries/ConsoleApplicationNoWeffcpp.pri)
-include(../RibiLibraries/Boost.pri)
-include(../RibiLibraries/GeneralConsole.pri)
-include(../RibiLibraries/GeneralConsoleTest.pri)
+include(../RibiClasses/CppAbout/CppAbout.pri)
+include(../RibiClasses/CppFileIo/CppFileIo.pri)
+include(../RibiClasses/CppHelp/CppHelp.pri)
+include(../RibiClasses/CppMenuDialog/CppMenuDialog.pri)
 
 include(../BeerWanter/BeerWanterConsole.pri)
 include(../BeerWanter/BeerWanterConsoleTest.pri)
 
 SOURCES += main_test.cpp
 
-# Boost.Test
-LIBS += -lboost_unit_test_framework
-
-# Thanks to Qt
-QMAKE_CXXFLAGS += -Wno-unused-variable
-
-# gcov
-QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage
-LIBS += -lgcov
-
-# C++11
+# C++14
+CONFIG += c++14
 QMAKE_CXX = g++-5
 QMAKE_LINK = g++-5
 QMAKE_CC = gcc-5
-QMAKE_CXXFLAGS += -std=c++11
+QMAKE_CXXFLAGS += -std=c++14
+
+# High warning levels
+QMAKE_CXXFLAGS += -Wall -Wextra -Werror
+
+# Debug and release mode
+CONFIG += debug_and_release
+CONFIG(release, debug|release) {
+
+  DEFINES += NDEBUG
+
+}
+
+CONFIG(debug, debug|release) {
+  # gcov
+  QMAKE_CXXFLAGS += -fprofile-arcs -ftest-coverage
+  LIBS += -lgcov
+}
+
+# Boost.Test
+LIBS += -lboost_unit_test_framework
+
+
+# Qt
+# Go ahead and use Qt.Core: it is about as platform-independent as
+# the STL and Boost
+QT += core
+# Go ahead and use Qt.Gui: it is about as platform-independent as
+# the STL and Boost. It is needed for QImage
+QT += gui
+# Don't define widgets: it would defy the purpose of this console
+# application to work non-GUI
+#greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+# Thanks to Qt
+QMAKE_CXXFLAGS += -Wno-unused-variable
+
+
+
