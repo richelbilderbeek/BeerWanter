@@ -27,9 +27,9 @@ along with this program.If not, see <http://www.gnu.org/licenses/>.
 
 #include "beerwantermaindialog.h"
 #include "qtbeerwanterwidget.h"
-#include "testtimer.h"
+
 #include "ui_qtbeerwantermaindialog.h"
-#include "trace.h"
+
 #pragma GCC diagnostic pop
 
 ribi::QtBeerWanterMainDialog::QtBeerWanterMainDialog(QWidget *parent)

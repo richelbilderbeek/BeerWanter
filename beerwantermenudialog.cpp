@@ -33,8 +33,8 @@ along with this program.If not, see <http://www.gnu.org/licenses/>.
 
 #include "beerwantermaindialog.h"
 #include "fileio.h"
-#include "testtimer.h"
-#include "trace.h"
+
+
 #pragma GCC diagnostic pop
 
 int ribi::BeerWanterMenuDialog::ExecuteSpecific(
@@ -59,9 +59,6 @@ ribi::About ribi::BeerWanterMenuDialog::GetAbout() const noexcept
     "http://www.richelbilderbeek.nl/GameBeerWanter.htm",
     GetVersion(),
     GetVersionHistory());
-  //a.AddLibrary("Canvas version: " + Canvas::GetVersion());
-  //a.AddLibrary("ImageCanvas version: " + ImageCanvas::GetVersion());
-  a.AddLibrary("TestTimer version: " + TestTimer::GetVersion());
   return a;
 }
 

@@ -1,0 +1,24 @@
+#!/bin/bash
+folder_name=BeerWanter
+pro_name=$folder_name"DesktopMxe.pro"
+exe_name=$folder_name"DesktopMxe.exe"
+
+cp BeerWanterDesktop.pro $pro_name
+
+# Remove all warnings
+sed -i 's/^QMAKE_CXXFLAGS += -W/# QMAKE_CXXFLAGS += -W/' $pro_name
+# Remove use of compiler and linker 
+sed -i 's/^QMAKE_CXX /# QMAKE_CXX /' $pro_name
+sed -i 's/^QMAKE_LINK/# QMAKE_LINK/' $pro_name
+sed -i 's/^QMAKE_CC/# QMAKE_CC/' $pro_name
+
+i686-w64-mingw32.static-qmake-qt5 $pro_name
+
+make
+
+if [ ! -f ./release/$exe_name ]
+then
+  echo "Error: Windows executable has not been created"
+  exit 1
+fi
+
