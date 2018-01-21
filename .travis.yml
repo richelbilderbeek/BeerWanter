@@ -1,4 +1,3 @@
-sudo: required
 language: cpp
 compiler: gcc
 dist: trusty
@@ -10,9 +9,6 @@ addons:
     - libboost-all-dev
 
 before_install:
-  # Qt5, from https://gist.github.com/jreese/6207161#gistcomment-1462109
-  - sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa
-  - sudo apt-get update -qq
   # C++14
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
   - sudo apt-get update -qq
@@ -23,8 +19,9 @@ install:
   - export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
   # C++14
   - sudo apt-get install -qq g++-5
-  - sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-5 90
+  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 90
   # Codecov
+  - sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-5 90
   - sudo pip install codecov
   # OCLint
   - ./install_oclint.sh
