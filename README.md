@@ -1,11 +1,9 @@
 # BeerWanter
 
-[![Travis CI logo](TravisCI.png)](https://travis-ci.org)
-![Whitespace](Whitespace.png)
-[![Codecov logo](Codecov.png)](https://www.codecov.io)
-
-[![Build Status](https://travis-ci.org/richelbilderbeek/BeerWanter.svg?branch=master)](https://travis-ci.org/richelbilderbeek/BeerWanter)
-[![codecov.io](https://codecov.io/github/richelbilderbeek/BeerWanter/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/BeerWanter?branch=master)
+Branch|[![Travis CI logo](TravisCI.png)](https://travis-ci.org)|[![Codecov logo](Codecov.png)](https://www.codecov.io)
+---|---|---
+master|[![Build Status](https://travis-ci.org/richelbilderbeek/BeerWanter.svg?branch=master)](https://travis-ci.org/richelbilderbeek/BeerWanter) | [![codecov.io](https://codecov.io/github/richelbilderbeek/BeerWanter/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/BeerWanter?branch=master)
+develop|[![Build Status](https://travis-ci.org/richelbilderbeek/BeerWanter.svg?branch=develop)](https://travis-ci.org/richelbilderbeek/BeerWanter) | [![codecov.io](https://codecov.io/github/richelbilderbeek/BeerWanter/coverage.svg?branch=develop)](https://codecov.io/github/richelbilderbeek/BeerWanter?branch=develop)
 
 [Game](https://github.com/richelbilderbeek/Games) in which you have to click on the beer, written in C++ using Qt.
 
