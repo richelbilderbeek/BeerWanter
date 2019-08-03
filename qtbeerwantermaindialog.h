@@ -22,11 +22,11 @@ along with this program.If not, see <http://www.gnu.org/licenses/>.
 #ifndef QTBEERWANTERMAINDIALOG_H
 #define QTBEERWANTERMAINDIALOG_H
 
-#pragma GCC diagnostic push
+
 
 #include <boost/shared_ptr.hpp>
 #include "qthideandshowdialog.h"
-#pragma GCC diagnostic pop
+
 
 namespace Ui {
   class QtBeerWanterMainDialog;

@@ -24,13 +24,13 @@ along with this program.If not, see <http://www.gnu.org/licenses/>.
 
 #include <tuple>
 
-#pragma GCC diagnostic push
+
 
 #include <boost/scoped_ptr.hpp>
 #include <boost/shared_ptr.hpp>
 #include <QWidget>
 #include "beerwantermaindialog.h"
-#pragma GCC diagnostic pop
+
 
 struct QMouseEvent;
 struct QPixmap;

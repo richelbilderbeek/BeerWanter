@@ -27,7 +27,7 @@ along with this program.If not, see <http://www.gnu.org/licenses/>.
 #include <sstream>
 #include <stdexcept>
 
-#pragma GCC diagnostic push
+
 
 #include <QFile>
 
@@ -35,7 +35,7 @@ along with this program.If not, see <http://www.gnu.org/licenses/>.
 #include "fileio.h"
 
 
-#pragma GCC diagnostic pop
+
 
 int ribi::BeerWanterMenuDialog::ExecuteSpecific(
   const std::vector<std::string>&
