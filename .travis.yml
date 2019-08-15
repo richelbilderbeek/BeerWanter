@@ -35,8 +35,8 @@ script:
   - sleep 10
   - sudo killall BeerWanterDesktop
   # Codecov
-  - ./get_code_cov.sh
-  - codecov
+  - ./get_code_cov.sh >/dev/null
+  - codecov >/dev/null
   # OCLint
   - ./do_oclint.sh || true
 
